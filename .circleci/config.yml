@@ -14,9 +14,6 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
       - run: mkdir -p workspace
       - run: echo "Hello, world!" > workspace/echo-output
       - persist_to_workspace:
@@ -34,7 +31,6 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - checkout
       - run: |
           if [[ `cat /tmp/workspace/echo-output` == "Hello, world!" ]]; then
             echo "It worked!";
