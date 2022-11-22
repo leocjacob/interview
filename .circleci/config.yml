@@ -16,9 +16,8 @@ jobs:
       - checkout
       - run: mkdir -p workspace
       - run: echo "Hello, world!" > workspace/echo-output
-      - run: |
-          python --version
-          python3 --version
+      - run: python --version
+      - run: python3 --version
       - persist_to_workspace:
           root: workspace
           paths:
